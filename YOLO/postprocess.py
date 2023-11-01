@@ -126,7 +126,6 @@ def non_max_suppression_v2(
     xc = prediction[:, 4:14].amax(1) > conf_thres  # candidates
 
     # Settings
-    # min_wh = 2  # (pixels) minimum box width and height
     time_limit = 0.5 + max_time_img * bs  # seconds to quit after
     multi_label &= nc > 1  # multiple labels per box (adds 0.5ms/img)
 
@@ -140,7 +139,6 @@ def non_max_suppression_v2(
     output_index = [torch.zeros((0,), device=prediction.device)] * bs
     for xi, x in enumerate(prediction):  # image index, image inference
         # Apply constraints
-        # x[((x[:, 2:4] < min_wh) | (x[:, 2:4] > max_wh)).any(1), 4] = 0  # width-height
         x = x[xc[xi]]  # confidence for all classes
         x_unedited = x.clone()  # for later comparison
 
@@ -160,7 +158,7 @@ def non_max_suppression_v2(
 
         # Detections matrix nx6 (xyxy, conf, cls)
         box, cls, mask = x.split((4, nc, nm), 1)
-        #print(x.shape)
+
         if multi_label and not single_agents:
             i, j = torch.where(cls > conf_thres) # Filter out non related classes
             x = torch.cat((box[i], x[i, 4 + j, None], j[:, None].float(), mask[i]), 1)
@@ -186,36 +184,16 @@ def non_max_suppression_v2(
         i = torchvision.ops.nms(boxes, scores, iou_thres)  # NMS
         i = i[:max_det]  # limit detections
 
-        #print(i)
-        #print(x)
 
         x_unedited = x_unedited[i]
         x = x[i]
-        #print(x_unedited.shape)
-        #print(x[i])
 
         box, cls, mask = x_unedited.split((4, nc, nm), 1)
-        #print(box,cls,mask)
+
         if single_agents:
             i, j = torch.where(cls > conf_thres) # Filter out non related classes
-            #print(len(i), i)
             x_all = torch.cat((box[i], x_unedited[i, 4 + j, None], j[:, None].float(), mask[i]), 1)
-            #print(x.shape)
 
-        
-
-        # # Experimental
-        # merge = False  # use merge-NMS
-        # if merge and (1 < n < 3E3):  # Merge NMS (boxes merged using weighted mean)
-        #     # Update boxes as boxes(i,4) = weights(i,n) * boxes(n,4)
-        #     from .metrics import box_iou
-        #     iou = box_iou(boxes[i], boxes) > iou_thres  # iou matrix
-        #     weights = iou * scores[None]  # box weights
-        #     x[i, :4] = torch.mm(weights, x[:, :4]).float() / weights.sum(1, keepdim=True)  # merged boxes
-        #     redundant = True  # require redundant detections
-        #     if redundant:
-        #         i = i[iou.sum(1) > 1]  # require redundancy
-        #print(torch.unique(x[:, :4], dim=0).shape)
 
         output[xi] = x
         output_def[xi] = x_unedited
