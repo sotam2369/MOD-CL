@@ -1,0 +1,5 @@
+easydict>=1.10
+tensorboardX>=2.6.2.2
+ultralytics>=8.0.190
+lapx>=0.5.2
+torch_geometric>=2.3.1

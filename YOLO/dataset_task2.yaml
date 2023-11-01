@@ -1,0 +1,49 @@
+path: /usr/src/road-dataset/yolo_road-r_task2
+train: images/train
+val: images/val
+test:
+nc: 41
+
+# Classes (80 COCO classes)
+names:
+  0: Ped
+  1: Car
+  2: Cyc
+  3: Mobike
+  4: MedVeh
+  5: LarVeh
+  6: Bus
+  7: EmVeh
+  8: TL
+  9: OthTL
+  10: Red
+  11: Amber
+  12: Green
+  13: MovAway
+  14: MovTow
+  15: Mov
+  16: Brake
+  17: Stop
+  18: IncatLeft
+  19: IncatRht
+  20: HazLit
+  21: TurnLft
+  22: TurnRht
+  23: Ovtak
+  24: Wait2X
+  25: XingFmLft
+  26: XingFmRht
+  27: Xing
+  28: PushObj
+  29: VehLane
+  30: OutgoLane
+  31: OutgoCycLane
+  32: IncomLane
+  33: IncomCycLane
+  34: Pav
+  35: LftPav
+  36: RhtPav
+  37: Jun
+  38: xing
+  39: BusStop
+  40: parking
