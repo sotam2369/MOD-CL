@@ -1,2 +1,2 @@
-cd /usr/src/ROAD-R-2023-fork/
+cd /usr/src/MOD-CL/
 CUDA_VISIBLE_DEVICES=0 python main.py 1 /usr/src/road-dataset/ /usr/src/experiments/ /usr/src/ROAD-R-2023-fork/kinetics-pt/ --MODE=train --ARCH=resnet50 --MODEL_TYPE=I3D --DATASET=road --TRAIN_SUBSETS=train_1 --VAL_SUBSETS=val_3 --SEQ_LEN=8 --TEST_SEQ_LEN=8 --BATCH_SIZE=4 --LR=0.0041 --NUM_WORKERS=8

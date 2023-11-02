@@ -19,11 +19,11 @@ RUN apt-get install zip
 RUN apt-get install unzip
 
 # Create working directory
-RUN rm -rf /usr/src/ROAD-R-2023-fork && mkdir -p /usr/src/ROAD-R-2023-fork && mkdir -p /usr/src/ROAD-R-2023-fork
-WORKDIR /usr/src/ROAD-R-2023-fork
+RUN rm -rf /usr/src/MOD-CL && mkdir -p /usr/src/MOD-CL && mkdir -p /usr/src/MOD-CL
+WORKDIR /usr/src/MOD-CL
 
 # Copy contents
-COPY . /usr/src/ROAD-R-2023-fork
+COPY . /usr/src/MOD-CL
 
 # Install pip packages
 RUN python3 -m pip install --upgrade pip wheel

@@ -1,4 +1,4 @@
-cd /usr/src/ROAD-R-2023-fork/
+cd /usr/src/MOD-CL/
 unzip MaxHS.zip
 
 cd /usr/src/road-dataset/road/
