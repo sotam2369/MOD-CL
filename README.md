@@ -63,10 +63,10 @@ git clone https://github.com/gurkirt/road-dataset.git
 cd MOD-CL
 
 # Make the docker image
-sudo docker build -f scripts/Dockerfile -t MOD-CL .
+sudo docker build -f scripts/Dockerfile -t mod-cl .
 
 # Run the docker
-sudo docker run -it --ipc=host --gpus all --name MOD-CL-Cont -v "$(pwd)"/../road-dataset:/usr/src/road-dataset MOD-CL
+sudo docker run -it --ipc=host --gpus all --name mod-cl-cont -v "$(pwd)"/../road-dataset:/usr/src/road-dataset mod-cl
 
 # Run the installation scripts
 
