@@ -252,5 +252,5 @@ if __name__ == "__main__":
             new_video_data[frame] = new_frame_data
         new_data[video_name] = new_video_data
     
-    with open(f"./result_output/corrected.pkl", 'wb') as wf:
+    with open(f"./result_output/final_validated_output.pkl", 'wb') as wf:
         pickle.dump(new_data, wf)

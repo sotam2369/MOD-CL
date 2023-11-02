@@ -85,3 +85,7 @@ bash task1.sh
 # For training Task 2
 bash task2.sh
 ```
+
+The results of the execution will be saved in the result_output folder, which will be generated automatically.
+- For Task 1, the final output will be result_output/final_results.pkl
+- For Task 2, the final output will be result_output/final_validated_output.pkl
