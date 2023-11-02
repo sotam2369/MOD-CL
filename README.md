@@ -44,7 +44,7 @@ Combiner Model
 
 
 ### Task 2
-We trained the YOLOv8 model with added constraint loss. We used constraint loss built on Product T-Norm, a method shown in the original ROAD-R paper (the code can be seen in lines 101-115 in YOLO/loss.py). In our model, we calculated the loss with the following steps:
+We trained the YOLOv8 model with added constraint loss. We used constraint loss built on Product T-Norm, a method shown in the original ROAD-R paper (the code can be seen in lines 101-115 in [YOLO/loss.py](YOLO/loss.py)). In our model, we calculated the loss with the following steps:
 
 1. Focused on bounding boxes which has at least one label with a confidence score above 0.5
 1. Calculated how much each of the 243 requirements are **satisfied** using Product T-Norm (by transforming the conjunctions to disjunctions)
