@@ -217,7 +217,7 @@ if __name__ == "__main__":
     if not os.path.exists(wdimacs_constraints_path):
         create_WDIMACS_constraints(CONSTRAINTS_PATH, wdimacs_constraints_path)
 
-    pkl_folder = 'result_output/final_results.pkl'
+    pkl_folder = 'result_output/final_output_task2.pkl'
 
     with open(f"./{pkl_folder}", 'rb') as rf:
         data = pickle.load(rf)

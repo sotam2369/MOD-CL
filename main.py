@@ -249,7 +249,7 @@ def main():
             else:
                 tracking = "botsort.yaml"
             
-            tester.test(model, videos, os.path.join(args.DATA_ROOT, "road_test/videos"), tracking=tracking, extender=args.TASK==1)
+            tester.test(model, videos, os.path.join(args.DATA_ROOT, "road_test/videos"), tracking=tracking, extender=args.TASK==1, out_name=f"result_output/final_output_task{args.TASK}.pkl")
             
         elif args.MODE == 'extender':
             # Video names for use when training the extender model.
