@@ -1,6 +1,6 @@
 import pickle
 import sys
-
+from tqdm import tqdm
 
 if __name__ == '__main__':
     task = int(sys.argv[1])
@@ -16,31 +16,20 @@ if __name__ == '__main__':
     with open(f'result_output/{names[1]}.pkl', 'rb') as f:
         db_final_check = pickle.load(f)
 
-    same_digits = 10
-    same_digits2 = 10
-    for video in db_final_check.keys():
-        for frame in db_final_check[video].keys():
-            for bbox_num, bbox in enumerate(db_final_check[video][frame]):
-                for i in range(4):
-                    db_final_check[video][frame][bbox_num]['bbox'][i] = round(bbox['bbox'][i], same_digits)
-                for i in range(len(bbox['labels'])):
-                    db_final_check[video][frame][bbox_num]['labels'][i] = round(bbox['labels'][i], same_digits2)
+    difference = 0
 
     for video in db_final.keys():
-        for frame in db_final[video].keys():
+        for frame in tqdm(db_final[video].keys()):
             for bbox in db_final[video][frame]:
-                for i in range(4):
-                    bbox['bbox'][i] = round(bbox['bbox'][i], same_digits)
-                for i in range(len(bbox['labels'])):
-                    bbox['labels'][i] = round(bbox['labels'][i], same_digits2)
                 if not bbox in db_final_check[video][frame]:
-                    print(bbox)
-                    print(db_final_check[video][frame])
-                    exit()
+                    difference += 1
                 else:
                     db_final_check[video][frame].remove(bbox)
             if len(db_final_check[video][frame]) == 0:
                 db_final_check[video].pop(frame)
 
-    print("SAME!")
-    print(db_final_check)
+    if difference == 0:
+        print("SAME!")
+        print(db_final_check)
+    else:
+        print("Difference:", difference)

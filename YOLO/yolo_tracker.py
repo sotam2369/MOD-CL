@@ -9,7 +9,6 @@ from ultralytics.utils.checks import check_yaml
 
 from ultralytics.trackers.bot_sort import BOTSORT
 from ultralytics.trackers.byte_tracker import BYTETracker
-import ultralytics.utils.ops as ops
 from ultralytics.engine.results import Boxes
 
 TRACKER_MAP = {'bytetrack': BYTETracker, 'botsort': BOTSORT}
