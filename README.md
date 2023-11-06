@@ -79,7 +79,8 @@ bash scripts/installation_nodataset.sh
 Go to the scripts folder. Then, run the following commands.
 ```
 # For training Task 1
-bash task1.sh
+bash task1_part1.sh
+bash task1_part2.sh
 
 
 # For training Task 2
