@@ -112,3 +112,4 @@ python main.py 2 ../road-dataset/ ./ ./ --MODE=train --YOLO --MODE eval_frames -
 python post_processing.py --post_proc map_times_pred_based --th 0.3
 ```
 
+Notes: As the training was done completely on docker, we are not able to guarantee the reproducibility without the docker environment we setup.
