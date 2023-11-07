@@ -1,4 +1,4 @@
-path: /usr/src/road-dataset/yolo_road-r_task2
+path: ../../road-dataset/yolo_road-r_task2
 train: images/train
 val: images/val
 test:

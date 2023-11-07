@@ -98,7 +98,7 @@ Go to the root folder. Then, run the following commands. The following commands 
 
 ```
 # For training Task 1
-rmdir -rf YOLO_task1  # If made already
+rm -rf YOLO_task1  # If made already
 python main.py 1 ../road-dataset/ ./ ./ --MODE=train --YOLO --MAX_EPOCHS 19
 python main.py 1 ../road-dataset/ ./ ./ --MODE=train --YOLO --MODE extender --YOLO_PRETRAINED 0
 python main.py 1 ../road-dataset/ ./ ./ --MODE=train --YOLO --MODE eval_frames --YOLO_PRETRAINED 0
@@ -106,7 +106,7 @@ python main.py 1 ../road-dataset/ ./ ./ --MODE=train --YOLO --MODE eval_frames -
 
 
 # For training Task 2
-rmdir -rf YOLO_task2  # If made already
+rm -rf YOLO_task2  # If made already
 python main.py 2 ../road-dataset/ ./ ./ --MODE=train --YOLO --LOGIC True --MAX_EPOCHS 100
 python main.py 2 ../road-dataset/ ./ ./ --MODE=train --YOLO --MODE eval_frames --YOLO_PRETRAINED 0
 python post_processing.py --post_proc map_times_pred_based --th 0.3
