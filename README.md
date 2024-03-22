@@ -116,6 +116,7 @@ Notes: As the training was done completely on docker, we are not able to guarant
 
 
 # Citation
+```
 @misc{moriyama2024modcl,
       title={MOD-CL: Multi-label Object Detection with Constrained Loss}, 
       author={Sota Moriyama and Koji Watanabe and Katsumi Inoue and Akihiro Takemura},
@@ -124,3 +125,4 @@ Notes: As the training was done completely on docker, we are not able to guarant
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+```
