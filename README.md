@@ -113,3 +113,14 @@ python post_processing.py --post_proc map_times_pred_based --th 0.3
 ```
 
 Notes: As the training was done completely on docker, we are not able to guarantee the reproducibility without the docker environment we setup.
+
+
+# Citation
+@misc{moriyama2024modcl,
+      title={MOD-CL: Multi-label Object Detection with Constrained Loss}, 
+      author={Sota Moriyama and Koji Watanabe and Katsumi Inoue and Akihiro Takemura},
+      year={2024},
+      eprint={2403.07885},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
